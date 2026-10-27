@@ -1,0 +1,55 @@
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python virtual environments, bytecode, and tooling caches
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# JavaScript dependencies and build output
+node_modules/
+dist/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# Private or raw datasets; keep restricted data out of Git
+/data/raw/
+/data/private/
+/datasets/raw/
+/datasets/private/
+
+# Generated model weights, checkpoints, and artifacts
+/ml/artifacts/
+/ml/checkpoints/
+/models/
+/checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+
+# Local logs and editor/OS files
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

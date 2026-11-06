@@ -1,0 +1,79 @@
+{
+  "dataset_rows": 39769,
+  "public_training_labels": 3000,
+  "prediction_rows": 39769,
+  "prediction_columns": [
+    "feedback_id",
+    "issue_type_id",
+    "severity",
+    "actionable"
+  ],
+  "emerging_flag_rows": 75,
+  "emerging_flag_columns": [
+    "as_of_week_start",
+    "store_id",
+    "issue_type_id",
+    "confidence",
+    "evidence_feedback_ids"
+  ],
+  "submission_validation": {
+    "prediction_rows": 39769,
+    "flag_rows": 75,
+    "valid_evidence_ids": 439
+  },
+  "model_path": "C:\\Users\\Sreedhar\\Documents\\voiceofstore\\ml\\artifacts\\r5_tfidf_classifier.joblib",
+  "classifier": {
+    "features": "word+character TF-IDF",
+    "estimators": "three LinearSVC models with taxonomy policy",
+    "C": 0.5,
+    "max_iter": 2000,
+    "tolerance": 0.001
+  },
+  "prediction_timeline": "public training weeks use earlier labels only; week one uses the organizer's public rules baseline; test weeks use all public training labels",
+  "flag_generation_periods": {
+    "public_training_weeks": 13,
+    "held_out_test_weeks": 13,
+    "causal_training_week_bundles": 12
+  },
+  "validation": {
+    "validation_split": {
+      "method": "chronological_holdout_with_exact_normalized_text_purge",
+      "training_week_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "validation_week_indices": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "training_rows_before_purge": 2043,
+      "training_rows_after_purge": 2006,
+      "purged_training_rows": 37,
+      "validation_rows": 957,
+      "validation_issue_types": 33
+    },
+    "issue_type_macro_f1": 0.878496,
+    "severity_weighted_f1": 0.898445,
+    "actionable_positive_f1": 0.938924,
+    "classification_score": 0.89859,
+    "actionable_precision": 0.944954,
+    "actionable_high_or_critical_precision": 0.97037,
+    "validation_rows": 957,
+    "issue_type_classes_in_validation": 33
+  },
+  "limitations": [
+    "Validation uses one chronological holdout of public weeks, with exact normalized duplicate text purged from training.",
+    "Cross-channel deduplication currently removes exact normalized duplicate text only; semantic deduplication is not implemented.",
+    "Emerging-issue normalization uses avg_weekly_footfall from the official store master because no transaction file is provided.",
+    "Flags are bounded to three per week and cite distinct exact-text groups from the same store and calendar week."
+  ]
+}

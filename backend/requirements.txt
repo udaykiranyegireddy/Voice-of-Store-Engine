@@ -1,0 +1,11 @@
+#Minimal API framework and local ASGI server.
+fastapi>=0.115,<1.0
+uvicorn>=0.30,<1.0
+# Optional trained R5 inference artifact used by the feedback API. The API
+# remains available with transparent rules when the artifact is absent.
+pandas==3.1.0
+numpy==2.5.4
+scipy==1.18.1
+joblib==1.6.0
+scikit-learn==1.9.0
+threadpoolctl==3.7.0

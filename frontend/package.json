@@ -1,0 +1,27 @@
+{
+  "name": "voice-of-store-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --configLoader native",
+    "build": "tsc --noEmit && vite build --configLoader native",
+    "test": "node --test src/lib/analytics.test.mjs src/lib/duplicateReviewService.test.mjs src/lib/incidentService.test.mjs src/lib/liveDuplicateDetection.test.mjs src/lib/localIncidentStore.test.mjs src/lib/authAccess.test.mjs",
+    "preview": "vite preview --configLoader native"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.112.4",
+    "lucide-react": "^0.468.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "recharts": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "supabase": "^2.122.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0"
+  }
+}

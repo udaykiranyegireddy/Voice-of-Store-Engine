@@ -11,6 +11,7 @@ credentials/
 
 # Python virtual environments, bytecode, and tooling caches
 .venv/
+.venv-ml/
 venv/
 env/
 ENV/
@@ -19,6 +20,7 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.ipynb_checkpoints/
 .coverage
 .coverage.*
 htmlcov/
@@ -30,15 +32,29 @@ dist/
 coverage/
 *.tsbuildinfo
 
-# Private or raw datasets; keep restricted data out of Git
-/data/raw/
-/data/private/
-/datasets/raw/
-/datasets/private/
+# Supabase local runtime state and checkout-specific link/cache files
+/.supabase-home/
+/.supabase/
+/supabase/.temp/
+
+# Other datasets stay out of Git by default; the public synthetic R5 organizer package is part of this project.
+/data/*
+!/data/store_weekly_transactions_template.csv
+!/data/organizer-r5-v1/
+/data/organizer-r5-v1/*
+!/data/organizer-r5-v1/R5_Voice_of_Store_Engine/
+!/data/organizer-r5-v1/R5_Voice_of_Store_Engine/**
+/data/organizer-r5-v1/R5_Voice_of_Store_Engine/**/__pycache__/
+/data/organizer-r5-v1/R5_Voice_of_Store_Engine/**/*.pyc
+/datasets/
+/ml/data/
 
 # Generated model weights, checkpoints, and artifacts
 /ml/artifacts/
 /ml/checkpoints/
+/ml/models/
+/ml/runs/
+/ml/output/
 /models/
 /checkpoints/
 *.pt
@@ -46,6 +62,11 @@ coverage/
 *.ckpt
 *.onnx
 *.safetensors
+*.pkl
+*.joblib
+*.h5
+*.keras
+*.model
 
 # Local logs and editor/OS files
 *.log
@@ -53,3 +74,7 @@ coverage/
 Thumbs.db
 .idea/
 .vscode/
+/.codex-backups/
+
+# Keep organizer-provided data out of GitHub
+/data/
